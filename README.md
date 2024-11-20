@@ -16,6 +16,8 @@ WorkflowScheduler is a cross-platform Python application that helps users organi
 - Operating System - Compatible with Windows 10+ and Ubuntu 20.04+
 
 ## Development
+- Next stage: testing and fix/improve.
+- WorkDone: First complete version of scripts done...
 ```
 WorkflowScheduler/
 ├── main_script.py
