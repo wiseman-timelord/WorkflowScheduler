@@ -19,6 +19,8 @@ WorkflowScheduler is a cross-platform Python application that helps users organi
 ```
 WorkflowScheduler/
 ├── main_script.py
+├── Launcher.bat
+├── Launcher.sh
 ├── data/
 │   └── persistence.json
 ├── scripts/
