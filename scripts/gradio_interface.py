@@ -1,10 +1,12 @@
 import gradio as gr
-from scripts.utility_misc import validate_config, countdown_timer
+import time
 import threading
+from scripts.utility_misc import validate_config, countdown_timer
 
 def launch_interface(config, save_config, port=7860):
     """Launch the Gradio interface with configuration and save functionality."""
     interrupt_event = threading.Event()
+    skip_event = threading.Event()
 
     def configure_schedule(data):
         """Update the schedule and save it to file."""
@@ -23,20 +25,48 @@ def launch_interface(config, save_config, port=7860):
     def run_schedule(events):
         """Execute the schedule with timers and progress updates."""
         interrupt_event.clear()
+        skip_event.clear()
         progress_updates = []
-        for event in events:
-            if interrupt_event.is_set():
-                yield "Execution stopped!", 0
-                return
-            progress_updates.append(f"Starting: {event['event']}")
-            yield "\n".join(progress_updates), len(progress_updates) / len(events) * 100
-            countdown_timer(event["duration"] * 60, lambda r, d: None, interrupt_event)
-        yield "All events completed!", 100
+        
+        try:
+            for index, event in enumerate(events, 1):
+                if interrupt_event.is_set():
+                    yield "Execution stopped!", 0
+                    return
+                
+                current_event_text = f"Event {index}: {event['event']}"
+                progress_updates.append(current_event_text)
+                yield "\n".join(progress_updates), (index - 1) / len(events) * 100
+                
+                duration = event['duration'] * 60  # Convert to seconds
+                for elapsed in range(duration):
+                    if interrupt_event.is_set():
+                        yield "Execution stopped!", 0
+                        return
+                    
+                    if skip_event.is_set():
+                        skip_event.clear()
+                        break
+                    
+                    remaining = duration - elapsed
+                    progress_percentage = ((index - 1) + (elapsed / duration)) / len(events) * 100
+                    yield current_event_text + f" (Remaining: {remaining} seconds)", progress_percentage
+                    time.sleep(1)
+            
+            yield "All events completed!", 100
+        
+        except Exception as e:
+            yield f"Error during execution: {str(e)}", 0
 
     def stop_execution():
         """Stop current execution and reset to configuration."""
         interrupt_event.set()
         return gr.update(visible=False), gr.update(visible=True)
+
+    def skip_to_next():
+        """Skip the current event."""
+        skip_event.set()
+        return
 
     # Build Gradio UI
     with gr.Blocks() as app:
@@ -48,6 +78,7 @@ def launch_interface(config, save_config, port=7860):
         with gr.Row(visible=False) as execution_page:
             current_event = gr.Textbox(label="Current Event", interactive=False)
             progress_bar = gr.Slider(0, 100, step=1, label="Progress", interactive=False)
+            skip_btn = gr.Button("Skip To Next")
             stop_btn = gr.Button("Stop and Exit")
             back_btn = gr.Button("Back to Configure")
 
@@ -58,6 +89,6 @@ def launch_interface(config, save_config, port=7860):
         )
 
         stop_btn.click(stop_execution, None, [execution_page, configure_page])
+        skip_btn.click(skip_to_next, None, None)
 
         app.launch(server_name="0.0.0.0", server_port=port)  # Ensure accessibility on Linux
-
