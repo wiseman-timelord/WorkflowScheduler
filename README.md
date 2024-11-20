@@ -23,6 +23,7 @@ WorkflowScheduler/
 ├── Launcher.sh
 ├── data/
 │   └── persistence.json
+│   └── requirements.txt
 ├── scripts/
     ├── gradio_interface.py
     └── utility_misc.py
