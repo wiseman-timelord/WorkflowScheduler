@@ -32,7 +32,8 @@ WorkflowScheduler/
 │   └── persistence.json (persistent settings).
 │   └── requirements.txt (for installing the libraries).
 ├── scripts/
+    ├── temporary.py  (ALL globals, maps, lists, arrays).
     ├── interface.py
-    ├── utility.py
-    └── temporary.py  (ALL globals, maps, lists, arrays).
+    ├── database.py
+    └── utility.py
 ```
