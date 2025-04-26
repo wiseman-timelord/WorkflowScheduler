@@ -24,13 +24,15 @@ Next Stages...
 ### Structure
 ```
 WorkflowScheduler/
-├── launcher.py
 ├── Windows.bat
-├── Ubuntu.sh
+├── Linux.sh
+├── launcher.py (entry for main program)
+├── installer.py (standalone installer for, creates the `.\data` folder, checks for and as required creates the `.\data\requirements.txt`, check and create/re-create the json remember it should over-write if json present, download libraries from the created requirements text file) 
 ├── data/
-│   └── persistence.json
-│   └── requirements.txt
+│   └── persistence.json (persistent settings).
+│   └── requirements.txt (for installing the libraries).
 ├── scripts/
-    ├── gradio_interface.py
-    └── utility_misc.py
+    ├── interface.py
+    ├── utility.py
+    └── temporary.py  (ALL globals, maps, lists, arrays).
 ```
