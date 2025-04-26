@@ -1,8 +1,7 @@
 # WorkflowScheduler
-The user can organize their time upon activities, while also factoring in time for breaks, and it uses a gradio interface.
 
 ### Description
-WorkflowScheduler is a cross-platform Python application that helps users organize their time and activities efficiently. With a simple and interactive Gradio-based interface, users can configure up to 10 timed events, track progress with timers, and dynamically adjust their schedule to fit their needs. The idea is people have plan for day, like tidy whole house, they can now schedule work and breaks, and complete task effectively in day; main thing, simplicity and effective features and visualization of time processes and tasks.
+WorkflowScheduler is a cross-platform Python application that helps users organize their time and activities efficiently. The user can organize their time upon activities, while also factoring in time for breaks, and it uses a gradio interface, users can configure, 30 days past, 30 days future, the current day, thats 61 days rolling, to optimally, track progress, and automatically schedule repeating, daily, weekly, monthly, tasks and times, and dynamically adjust their schedule to fit their needs. The idea is people have plan for day, like tidy whole house, they can now schedule work and breaks, and complete task effectively in day; main thing, simplicity and effective features and visualization of time processes and tasks.
 
 ### Features
 - Intuitive Gradio Interface: User-friendly GUI to configure and manage schedules effortlessly.
@@ -16,13 +15,14 @@ WorkflowScheduler is a cross-platform Python application that helps users organi
 - Operating System - Compatible with Windows 10+ and Ubuntu 20.04+
 
 ## Development
-- Next stage: testing and fix/improve.
-- WorkDone: First complete version of scripts done...
+- Next stage: testing and, complete/fix/improve.
+
+### Structure
 ```
 WorkflowScheduler/
-├── main_script.py
-├── Launcher.bat
-├── Launcher.sh
+├── launcher.py
+├── Windows.bat
+├── Ubuntu.sh
 ├── data/
 │   └── persistence.json
 │   └── requirements.txt
