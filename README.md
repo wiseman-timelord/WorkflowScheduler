@@ -5,7 +5,7 @@ WorkflowScheduler is a cross-platform Python application designed to help users 
 
 ### Features
 - Intuitive Gradio Interface: Configure and manage your schedule effortlessly through a simple GUI.
-- Rolling 61-Day Schedule: View and manage events from 30 days in the past to 30 days in the future, with automatic updates.
+- Rolling 61-Day Schedule: View and manage events from 30 days in the past to 30 days in the future, plus the current day, with automatic updates of events.
 - Recurring Events: Schedule tasks that repeat daily, weekly, or monthly, with automatic rescheduling.
 - Event Notes: Attach readable notes to each event for additional context or reminders.
 - Real-Time Progress Updates: Monitor active events with a progress bar and remaining time display.
