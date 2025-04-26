@@ -1,21 +1,25 @@
 # WorkflowScheduler
 
 ### Description
-WorkflowScheduler is a cross-platform Python application that helps users organize their time and activities efficiently. The user can organize their time upon activities, while also factoring in time for breaks, and it uses a gradio interface, users can configure, 30 days past, 30 days future, the current day, thats 61 days rolling, to optimally, track progress, and automatically schedule repeating, daily, weekly, monthly, tasks and times, and dynamically adjust their schedule to fit their needs. The idea is people have plan for day, like tidy whole house, they can now schedule work and breaks, and complete task effectively in day; main thing, simplicity and effective features and visualization of time processes and tasks.
+WorkflowScheduler is a cross-platform Python application designed to help users efficiently organize their time and activities. With a user-friendly Gradio interface, it enables you to manage a rolling 61-day schedule—covering 30 days past, the current day, and 30 days future—to optimally track progress and automatically schedule repeating tasks (daily, weekly, or monthly). Whether planning a day to tidy the house or balancing work and breaks, the application supports dynamic adjustments to fit your needs. Its core focus is simplicity, effective features, and clear visualization of time, processes, and tasks.
 
 ### Features
-- Intuitive Gradio Interface: User-friendly GUI to configure and manage schedules effortlessly.
-- Dynamic Event Tracking: Allows up to 10 events, each with customizable labels and durations.
-- Real-Time Progress Updates: Displays active events, a progress bar, and remaining time for each activity.
-- Cross-Platform Compatibility: Fully compatible with both Windows and Linux environments.
-- Interrupt and Adjust Functionality: Includes options to stop, return to configuration, or exit anytime.
+- Intuitive Gradio Interface: Configure and manage your schedule effortlessly through a simple GUI.
+- Rolling 61-Day Schedule: View and manage events from 30 days in the past to 30 days in the future, with automatic updates.
+- Recurring Events: Schedule tasks that repeat daily, weekly, or monthly, with automatic rescheduling.
+- Event Notes: Attach readable notes to each event for additional context or reminders.
+- Real-Time Progress Updates: Monitor active events with a progress bar and remaining time display.
+- Cross-Platform Compatibility: Works seamlessly on Windows 10+ and Ubuntu 20.04+.
+- Interrupt and Adjust Functionality: Stop, return to configuration, or exit the application at any time.
 
 ## Requirements
 - Python - 3.7 or newer, Launcher can install requirements.
 - Operating System - Compatible with Windows 10+ and Ubuntu 20.04+
 
 ## Development
-- Next stage: testing and, complete/fix/improve.
+Next Stages...
+- Implement the Gradio interface for event management, integrate event logic with the SQLite database, and test the application across platforms.
+- testing and, complete/fix/improve.
 
 ### Structure
 ```
