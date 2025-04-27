@@ -23,17 +23,20 @@ Next Stages...
 
 ### Structure
 ```
+Initial Package:-
 WorkflowScheduler/
 ├── Windows.bat
 ├── Linux.sh
 ├── launcher.py (entry for main program)
 ├── installer.py (standalone installer for, creates the `.\data` folder, checks for and as required creates the `.\data\requirements.txt`, check and create/re-create the json remember it should over-write if json present, download libraries from the created requirements text file) 
-├── data/
-│   └── persistence.json (persistent settings).
-│   └── requirements.txt (for installing the libraries).
 ├── scripts/
     ├── temporary.py  (ALL globals, maps, lists, arrays).
     ├── interface.py
     ├── database.py
     └── utility.py
+
+Created by installer:-
+├── data/
+│   ├── persistence.json (persistent settings).
+│   └── requirements.txt (for installing the libraries).
 ```
